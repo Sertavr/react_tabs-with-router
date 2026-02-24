@@ -7,5 +7,7 @@ type Props = {
 };
 
 export const LinkTab: React.FC<Props> = ({ title, id }) => (
-  <Link to={`/tabs/${id}`}>{title}</Link>
+  <Link data-cy="TabLink" to={`/tabs/${id}`}>
+    {title}
+  </Link>
 );

@@ -2,7 +2,7 @@ import './App.scss';
 import { NavLink, Outlet } from 'react-router-dom';
 import classNames from 'classnames';
 
-const gerClassName = ({ isActive }: { isActive: boolean }) => {
+const getClassName = ({ isActive }: { isActive: boolean }) => {
   return classNames('navbar-item', { 'is-active': isActive });
 };
 
@@ -15,10 +15,10 @@ export const App = () => (
     >
       <div className="container">
         <div className="navbar-brand">
-          <NavLink to="/" className={gerClassName}>
+          <NavLink to="/" className={getClassName}>
             Home
           </NavLink>
-          <NavLink to="/tabs" className={gerClassName}>
+          <NavLink to="/tabs" className={getClassName}>
             Tabs
           </NavLink>
         </div>

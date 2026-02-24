@@ -1,13 +1,12 @@
 import React from 'react';
-import { LinkTab } from '../components/Link/LinkTab';
 import { tabs } from '../constants/constants';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export const TabsPage: React.FC = () => {
   const { tabId } = useParams();
 
   return (
-    <>
+    <div data-cy="TabsComponent">
       <h1 className="title">Tabs page</h1>
       <div className="tabs is-boxed">
         <ul>
@@ -17,7 +16,9 @@ export const TabsPage: React.FC = () => {
               data-cy="Tab"
               className={tabId === tab.id ? 'is-active' : ''}
             >
-              <LinkTab title={tab.title} id={tab.id} />
+              <Link data-cy="TabLink" to={`/tabs/${tab.id}`}>
+                {tab.title}
+              </Link>
             </li>
           ))}
         </ul>
@@ -27,6 +28,6 @@ export const TabsPage: React.FC = () => {
           'Please select a tab'}
         {tabId && tabs.find(tab => tabId === tab.id)?.content}
       </div>
-    </>
+    </div>
   );
 };
